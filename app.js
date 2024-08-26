@@ -21,11 +21,10 @@ app.get('/populate', async (req, res) => {
 
     try {
 
-        let promise = axios.get('https://jsonplaceholder.typicode.com/comments')
-
-        let promise2 = axios.get('http://cfte.mbwebportal.com/deepak/csvdata.csv')
-
-        let [result, result2] = await Promise.all([promise, promise2])
+        let [result, result2] = await Promise.all([
+            axios.get('https://jsonplaceholder.typicode.com/comments'),
+            axios.get('http://cfte.mbwebportal.com/deepak/csvdata.csv')
+        ])
 
         let data = result.data;
 
