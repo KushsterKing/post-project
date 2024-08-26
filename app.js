@@ -98,7 +98,7 @@ app.post('/search', async (req, res) => {
             finalObject['limit'] = Number(limit);
         }
 
-        if(order && orderBy && ['ASC', 'DESC'].includes(order.toUpperCase()) && ['id', 'name', 'email', 'postId'.includes(orderBy)]){
+        if(order && orderBy && ['ASC', 'DESC'].includes(order.toUpperCase()) && ['id', 'name', 'email', 'postId'].includes(orderBy)){
             finalObject['order'] = [[orderBy.toUpperCase(), order]];
         }
 
