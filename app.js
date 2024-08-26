@@ -31,7 +31,6 @@ app.get('/populate', async (req, res) => {
 
         fs.writeFileSync(__dirname + '/test.csv', result2.data)
 
-
         let readStream = fs.createReadStream(__dirname + '/test.csv', {encoding: 'utf-8'})
 
         readStream.on('data', (chunk) => {
