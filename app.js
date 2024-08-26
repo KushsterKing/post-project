@@ -21,13 +21,13 @@ app.get('/populate', async (req, res) => {
 
     try {
 
-        let result  = await axios.get('https://jsonplaceholder.typicode.com/comments')
+        let promise = axios.get('https://jsonplaceholder.typicode.com/comments')
+
+        let promise2 = axios.get('http://cfte.mbwebportal.com/deepak/csvdata.csv')
+
+        let [result, result2] = await Promise.all([promise, promise2])
 
         let data = result.data;
-
-        // console.log(data);
-
-        let result2  = await axios.get('http://cfte.mbwebportal.com/deepak/csvdata.csv')
 
         fs.writeFileSync(__dirname + '/test.csv', result2.data)
 
